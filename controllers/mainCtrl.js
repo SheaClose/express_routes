@@ -77,5 +77,39 @@ module.exports = {
         return restaurant.name.toLowerCase() == name
       })
       return res.status(200).json(filtered)
+    },
+
+    putNewName : function (req, res, next) {
+      user.name = req.body.name
+      res.json(user.name)
+    },
+
+    putNewLocation : function(req, res, next) {
+      user.location = req.body.location
+      res.status(200).json(user.location)
+    },
+
+    postNewHobby : function(req, res, next) {
+      var hobby = req.body
+      user.hobbies.push(hobby)
+      res.status(200).json(user.hobbies)
+    },
+
+    postNewOccupation : function(req, res, next) {
+      var occupation = req.body
+      user.occupations.push(occupation)
+      res.status(200).json(user.occupations)
+    },
+
+    postNewFamilyMember : function(req, res, next) {
+      var member = req.body
+      user.family.push(member)
+      res.status(200).json(user.family)
+    },
+
+    postNewResaurant : function(req, res, next) {
+      var restaurant = req.body
+      user.restaurants.push(restaurant)
+      res.status(200).json(user.restaurants)
     }
 }

@@ -14,11 +14,11 @@ app.get('/location', mainCtrl.getLocation)
 app.get('/occupations', mainCtrl.getOccupations)
 app.get('/occupations/latest', mainCtrl.getLatestOccupation)
 app.get('/hobbies', mainCtrl.getHobbies)
-// app.get('/hobbies/:type',)
-// app.get('/family',)
-// app.get('/family/:gender',)
-// app.get('/restaurants',)
-// app.get('/restaurants/:name',)
+app.get('/hobbies/:type', mainCtrl.getHobbiesByType)
+app.get('/family', mainCtrl.getFamily)
+app.get('/family/:gender', mainCtrl.getFamilyByGender)
+app.get('/restaurants', mainCtrl.getRestaurants)
+app.get('/restaurants/:name', mainCtrl.getRestaurantsByName)
 
 
 app.listen(3000, function(){

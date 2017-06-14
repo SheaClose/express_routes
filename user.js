@@ -44,9 +44,9 @@ var user = {
       rating: 7
     },
     {
-      name: "Chipotle",
-      type: "Tex-Mex",
-      rating: 9
+      name: "McDonald's",
+      type: "Fast Food",
+      rating: 1
     }
   ]
 }

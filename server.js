@@ -9,13 +9,18 @@ app.use(bodyParser.json())
 app.use(middleware.addHeaders)
 
 
-app.get('/name', )
-app.get('/location',)
-app.get('/occupations',)
-app.get('/occupations/latest',)
-app.get('/hobbies',)
-app.get('/hobbies/:type',)
-app.get('/family',)
-app.get('/family/:gender',)
-app.get('/restaurants',)
-app.get('/restaurants/:name',)
+app.get('/name', mainCtrl.getName)
+app.get('/location', mainCtrl.getLocation)
+app.get('/occupations', mainCtrl.getOccupations)
+app.get('/occupations/latest', mainCtrl.getLatestOccupation)
+app.get('/hobbies', mainCtrl.getHobbies)
+// app.get('/hobbies/:type',)
+// app.get('/family',)
+// app.get('/family/:gender',)
+// app.get('/restaurants',)
+// app.get('/restaurants/:name',)
+
+
+app.listen(3000, function(){
+  console.log("I am listening")
+})

@@ -1,4 +1,5 @@
 var user = require('../user.js')
+var skills = require('../skills.js')
 
 module.exports = {
 
@@ -111,5 +112,15 @@ module.exports = {
       var restaurant = req.body
       user.restaurants.push(restaurant)
       res.status(200).json(user.restaurants)
+    },
+//start here tomorrow
+    getSkills : function(req, res, next) {
+      if(req.query['experience']){
+        var experience = req.query.experience
+        var filtered = skills.filter(function(){
+          return skills.experience.toLowerCase() == experience
+        })
+      }
+      return res.status(200).json(skills)
     }
 }

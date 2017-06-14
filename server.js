@@ -20,12 +20,16 @@ app.get('/family/:gender', mainCtrl.getFamilyByGender)
 app.get('/restaurants', mainCtrl.getRestaurants)
 app.get('/restaurants/:name', mainCtrl.getRestaurantsByName)
 
+app.get('/skills', mainCtrl.getSkills)
+
 app.put('/name', mainCtrl.putNewName)
 app.put('/location', mainCtrl.putNewLocation)
 app.post('/hobbies', mainCtrl.postNewHobby)
 app.post('/occupations', mainCtrl.postNewOccupation)
 app.post('/family', mainCtrl.postNewFamilyMember)
 app.post('/restaurants', mainCtrl.postNewResaurant)
+
+
 
 
 app.listen(3000, function(){

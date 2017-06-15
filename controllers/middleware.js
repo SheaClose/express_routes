@@ -12,6 +12,12 @@ module.exports = {
     });
 
     next();
+  },
+
+  addSkillsID : function (req, res, next) {
+    var id = skills.length
+    req.body.id = id
+    next()
   }
 
 }

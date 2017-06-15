@@ -1,5 +1,6 @@
 var user = require('../user.js')
 var skills = require('../skills.js')
+var secrets = require('../secrets.js')
 
 module.exports = {
 
@@ -42,7 +43,7 @@ module.exports = {
   },
 
   getFamily : function(req, res, next){
-    if(req.query['relation']) {
+    if(req.query.relation) {
       var relation = req.query.relation
       var filtered = user.family.filter(function(member){
         return member.relation.toLowerCase() == relation
@@ -62,7 +63,7 @@ module.exports = {
     },
 
     getRestaurants : function(req, res, next){
-      if(req.query['rating']){
+      if(req.query.rating){
         var filtered = user.restaurants.filter(function(restaurant){
             return restaurant.rating >= 2
         })
@@ -115,12 +116,31 @@ module.exports = {
     },
 //start here tomorrow
     getSkills : function(req, res, next) {
-      if(req.query['experience']){
+      if(req.query.experience){
         var experience = req.query.experience
-        var filtered = skills.filter(function(){
-          return skills.experience.toLowerCase() == experience
+        var filtered = skills.filter(function(){  //getting error 'Skills Undefined'
+          return skills/*index?*/.experience.toLowerCase() == experience
         })
+        return res.status(200).json(filtered)
+      } else {
+        return res.status(200).json(skills)  //works fine here
       }
-      return res.status(200).json(skills)
+    },
+
+    postSkills : function(req, res, next) {
+      var newSkill = req.body
+      skills.push(newSkill)  //getting an error 'Skills Undefined'
+      res.status(200).json(skills)
+    },
+
+    getSecretsByUsernameAndId : function(req, res, next) {
+      var username = req.params.username
+      var id = req.params.id
+      var filtered = secrets.filter(function(secret){
+        return secret.username == username && secret.id == id
+      })
+      return res.status(200).json(filtered)
     }
+
+
 }

@@ -118,8 +118,8 @@ module.exports = {
     getSkills : function(req, res, next) {
       if(req.query.experience){
         var experience = req.query.experience
-        var filtered = skills.filter(function(){  //getting error 'Skills Undefined'
-          return skills/*index?*/.experience.toLowerCase() == experience
+        var filtered = skills.filter(function(skill){  //getting error 'Skills Undefined'
+          return skill.experience.toLowerCase() == experience
         })
         return res.status(200).json(filtered)
       } else {
@@ -135,10 +135,13 @@ module.exports = {
 
     getSecretsByUsernameAndId : function(req, res, next) {
       var username = req.params.username
-      var id = req.params.id
+      var id = parseInt(req.params.id)
       var filtered = secrets.filter(function(secret){
         return secret.username == username && secret.id == id
       })
+      if (!filtered.length) {
+        return res.status(401).json("You lose")
+      }
       return res.status(200).json(filtered)
     }
 

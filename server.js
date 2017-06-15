@@ -33,7 +33,7 @@ app.post('/restaurants', mainCtrl.postNewResaurant)
 app.get('/skills', mainCtrl.getSkills)
 app.post('/skills', middleware.addSkillsID, mainCtrl.postSkills)
 
-app.get('/secrets/:username/:pin', mainCtrl.getSecretsByUsernameAndId);
+app.get('/secrets/:username/:id', mainCtrl.getSecretsByUsernameAndId);
 
 
 

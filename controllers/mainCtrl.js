@@ -114,22 +114,22 @@ module.exports = {
       user.restaurants.push(restaurant)
       res.status(200).json(user.restaurants)
     },
-//start here tomorrow
+
     getSkills : function(req, res, next) {
       if(req.query.experience){
         var experience = req.query.experience
-        var filtered = skills.filter(function(skill){  //getting error 'Skills Undefined'
+        var filtered = skills.filter(function(skill){
           return skill.experience.toLowerCase() == experience
         })
         return res.status(200).json(filtered)
       } else {
-        return res.status(200).json(skills)  //works fine here
+        return res.status(200).json(skills)
       }
     },
 
     postSkills : function(req, res, next) {
       var newSkill = req.body
-      skills.push(newSkill)  //getting an error 'Skills Undefined'
+      skills.push(newSkill)  
       res.status(200).json(skills)
     },
 
